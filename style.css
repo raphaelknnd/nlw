@@ -3,13 +3,18 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    border: none;
 
 }
 :root{
     --primary-color: #00856f;
     --headline: #212529;
     --paragraph: #495057;
+    --background: #FFFAF1;
+    --border: #DCE9E2;
     font-size: 62.5%;
+
+    --nav-heigth: 7.2rem;
 }
 body{
     font-family: 'DM Sans', sans-serif;
@@ -18,11 +23,31 @@ body{
     text-align: center;
 }
 
-header{
+.wrapper{
     width: 37.5rem;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 4.1rem;
+
+    padding-inline: 2.4rem;;
+}
+
+/*======HEADER========================================*/
+
+header::before{
+    content: "";
+    width: 100vw;
+    height: calc(108rem + var(--nav-heigth));
+    background-color: var(--border);
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header{
+    margin-top: calc(4.1rem + var(--nav-heigth));
 }
 
 h4{
@@ -71,4 +96,84 @@ button{
     margin-right: auto;
     margin-left: auto;
     
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #00453A;
+}
+
+.woman{
+    display: block;
+    margin-inline: auto;
+    object-position: 0 2rem;
+    width: 26.4rem;
+}
+
+.box{
+    background-color: var(--background);
+    padding-block: 4rem;
+    width: 32.7rem;
+    border: var(--border) 0.1rem solid;
+    border-radius: 0.6rem;
+
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.box__son h3{
+    font-size: 4.8rem;
+    color: var(--headline);
+    line-height: 130%;
+
+    margin-bottom: 0.4rem;
+}
+
+.box__son p{
+    margin: 0;
+    color: var(--primary-color);
+    line-height: 150%;
+}
+
+.text{
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+/*=====NAV BAR========================================*/
+
+nav{
+    padding: 1.6rem;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+nav.scroll{
+    background-color: var(--primary-color);
+    width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path{
+    fill: white;
+}
+
+nav.scroll svg:nth-child(2) path{
+    stroke: white;
 }
